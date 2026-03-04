@@ -1,0 +1,57 @@
+spring:
+  config:
+    import:
+      - optional:file:response_message.yaml
+  application:
+    name: base
+
+  jackson:
+    date-format: yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
+    time-zone: Asia/Seoul
+    serialization:
+      write-dates-as-timestamps: false
+
+  datasource:
+    url: jdbc:postgresql://ep-aged-union-ahyfulaf-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require&channelBinding=require
+    username: neondb_owner
+    password: npg_drEjFQ6cP8GD
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update # 개발 단계에서는 update, 운영은 none 또는 validate
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        format_sql: true
+        highlight_sql: true
+        default_batch_fetch_size: 100 # 성능 최적화를 위한 필수 설정
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false # 영속성 컨텍스트 관리를 위해 false 권장
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+    disable-swagger-default-url: true
+    operations-sorter: method
+    groups-order: desc
+    use-root-path: true
+  api-docs:
+    path: /docs-json
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+
+jwt:
+  secret:
+    access: mP8zR2nL5qK9wV4xY7bN1mC3jH6gD9fS2aK5hJ8kL0pQ3wE6rT9yU2iO4pA7sS1dF4fG7gH0hJ3jK6kL9lM2zX5xC8vB1bN4nM7mQ0qW3wE6eR9rT2tY5
+    refresh: pA7sS1dF4fG7gH0hJ3jK6kL9lM2zX5xC8vB1bN4nM7mQ0qW3wE6eR9rT2tY5uU8iI1oO4pP7aA0sS3dD6fF9gG2hH5jJ8kK1lL4zZ7xX0cC3vV6bB9nN2mM5qQ8wW1eE4rR7tT0yY3uU6iI9oO2pP5aA8sS1dD4fF7gG0hH3jJ6
+  expiration:
+    access: 3600000 # 1 hour
+    refresh: 604800000 # 7 days
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
