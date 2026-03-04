@@ -12,7 +12,7 @@ spring:
       write-dates-as-timestamps: false
 
   datasource:
-    url: jdbc:postgresql://ep-aged-union-ahyfulaf-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require&channelBinding=require
+    url: jdbc:postgresql://ep-rapid-mountain-a1wv0i3d-pooler.ap-southeast-1.aws.neon.tech/neondb?user=neondb_owner&password=npg_bMQ8kwUPTv6A&sslmode=require&channelBinding=require
     username: neondb_owner
     password: npg_drEjFQ6cP8GD
     driver-class-name: org.postgresql.Driver
