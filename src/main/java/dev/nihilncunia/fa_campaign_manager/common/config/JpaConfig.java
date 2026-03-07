@@ -5,11 +5,15 @@ import dev.nihilncunia.fa_campaign_manager.common.security.CurrentUserProvider;
 import jakarta.persistence.EntityManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.auditing.DateTimeProvider;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+import java.time.OffsetDateTime;
+import java.util.Optional;
+
 @Configuration
-@EnableJpaAuditing
+@EnableJpaAuditing(auditorAwareRef = "auditorProvider", dateTimeProviderRef = "dateTimeProvider")
 public class JpaConfig {
 
   /**
@@ -21,6 +25,16 @@ public class JpaConfig {
   @SuppressWarnings("null")
   public AuditorAware<Long> auditorProvider() {
     return CurrentUserProvider::getCurrentUserId;
+  }
+
+  /**
+   * JPA Auditing 시 현재 시간 정보를 제공합니다.
+   * OffsetDateTime 타입을 지원하도록 설정합니다.
+   * @return 현재 시간을 포함한 Optional 객체
+   */
+  @Bean
+  public DateTimeProvider dateTimeProvider() {
+    return () -> Optional.of(OffsetDateTime.now());
   }
 
   /**

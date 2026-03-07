@@ -1,4 +1,4 @@
-package dev.nihilncunia.fa_campaign_manager.domains.health.example;
+package dev.nihilncunia.fa_campaign_manager.domains.health;
 
 import dev.nihilncunia.fa_campaign_manager.common.constant.RESPONSE_CODE;
 import dev.nihilncunia.fa_campaign_manager.common.constant.RESPONSE_MESSAGE;

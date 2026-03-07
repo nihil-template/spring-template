@@ -1,4 +1,4 @@
-package dev.nihilncunia.fa_campaign_manager.domains.health.service;
+package dev.nihilncunia.fa_campaign_manager.domains.health;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

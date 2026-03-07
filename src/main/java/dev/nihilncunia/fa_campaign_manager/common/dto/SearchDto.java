@@ -19,6 +19,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(description = "검색 DTO")
 public class SearchDto {
   
   @Builder.Default

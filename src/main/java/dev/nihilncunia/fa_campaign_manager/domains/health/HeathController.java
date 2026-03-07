@@ -1,10 +1,9 @@
-package dev.nihilncunia.fa_campaign_manager.domains.health.controller;
+package dev.nihilncunia.fa_campaign_manager.domains.health;
 
 import dev.nihilncunia.fa_campaign_manager.common.annotation.ApiExampleExclude;
 import dev.nihilncunia.fa_campaign_manager.common.constant.RESPONSE_MESSAGE;
 import dev.nihilncunia.fa_campaign_manager.common.response.BaseResponse;
 import dev.nihilncunia.fa_campaign_manager.common.constant.RESPONSE_CODE;
-import dev.nihilncunia.fa_campaign_manager.domains.health.service.HealthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
@@ -20,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/health")
 @RequiredArgsConstructor
-@Tag(name = "Health")
+@Tag(name = "00. 시스템 상태", description = "서버 활성화 상태를 확인하기 위한 API")
 public class HeathController {
   private final HealthService healthService;
   
@@ -31,7 +30,7 @@ public class HeathController {
   @GetMapping("")
   @Operation(
     summary = "서버 활성 상태 체크",
-    description = "서버의 상태를 true / false 로 응답합니다."
+    description = "현재 서버가 정상적으로 기동 중인지 확인합니다. true를 반환하면 정상입니다."
   )
   @ApiResponses(value = {
     @ApiResponse(

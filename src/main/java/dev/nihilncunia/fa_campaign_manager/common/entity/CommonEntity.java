@@ -11,7 +11,7 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @SuperBuilder
 @Getter
@@ -47,8 +47,9 @@ public class CommonEntity {
   private Long creatorId;
 
   @CreatedDate
-  @Schema(description = "생성일시", example = "2026-02-19T01:34:00.000Z")
-  private LocalDateTime createDate;
+  @Column(updatable = false)
+  @Schema(description = "생성일시", example = "2026-03-07T10:00:00.000+09:00")
+  private OffsetDateTime createDate;
 
   // --- 수정 정보 (Update) ---
 
@@ -57,17 +58,18 @@ public class CommonEntity {
   private Long updaterId;
 
   @LastModifiedDate
-  @Schema(description = "수정일시", example = "2026-02-19T01:34:00.000Z")
-  private LocalDateTime updateDate;
+  @Schema(description = "수정일시", example = "2026-03-07T10:00:00.000+09:00")
+  private OffsetDateTime updateDate;
 
   // --- 삭제 정보 (Delete) ---
 
   @Schema(description = "삭제자 ID", example = "1")
   private Long deleterId;
 
-  @Schema(description = "삭제일시", example = "2026-02-19T01:34:00.000Z")
-  private LocalDateTime deleteDate;
+  @Schema(description = "삭제일시", example = "2026-03-07T10:00:00.000+09:00")
+  private OffsetDateTime deleteDate;
 
+  @PrePersist
   protected void onPrePersist() {
     if (this.useYn == null)
       this.useYn = YN_CODE.Y;

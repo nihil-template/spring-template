@@ -1,6 +1,7 @@
 package dev.nihilncunia.fa_campaign_manager.common.config.swagger;
 
 import dev.nihilncunia.fa_campaign_manager.common.constant.RESPONSE_CODE;
+import dev.nihilncunia.fa_campaign_manager.common.constant.RESPONSE_MESSAGE;
 import dev.nihilncunia.fa_campaign_manager.common.response.ResponseExampleBuilder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -20,7 +21,7 @@ public class SwaggerExample {
       null,
       true,
       RESPONSE_CODE.BAD_REQUEST,
-      "잘못된 요청입니다."
+      RESPONSE_MESSAGE.DEFAULT_BAD_REQUEST
     );
   }
   
@@ -33,7 +34,7 @@ public class SwaggerExample {
       null,
       true,
       RESPONSE_CODE.UNAUTHORIZED,
-      "인증되지 않은 사용자입니다."
+      RESPONSE_MESSAGE.DEFAULT_UNAUTHORIZED
     );
   }
   
@@ -46,7 +47,7 @@ public class SwaggerExample {
       null,
       true,
       RESPONSE_CODE.FORBIDDEN,
-      "접근 권한이 없습니다."
+      RESPONSE_MESSAGE.DEFAULT_FORBIDDEN
     );
   }
   
@@ -59,7 +60,7 @@ public class SwaggerExample {
       null,
       true,
       RESPONSE_CODE.INTERNAL_SERVER_ERROR,
-      "서버 내부 오류"
+      RESPONSE_MESSAGE.DEFAULT_INTERNAL_SERVER_ERROR
     );
   }
   
@@ -72,7 +73,7 @@ public class SwaggerExample {
       null,
       false,
       RESPONSE_CODE.OK,
-      "로그인 성공"
+      RESPONSE_MESSAGE.AUTH_SIGN_IN_SUCCESS
     );
   }
   
@@ -85,7 +86,7 @@ public class SwaggerExample {
       null,
       false,
       RESPONSE_CODE.OK,
-      "토큰 재발급 성공"
+      RESPONSE_MESSAGE.AUTH_REFRESH_SUCCESS
     );
   }
   
@@ -98,7 +99,7 @@ public class SwaggerExample {
       null,
       false,
       RESPONSE_CODE.OK,
-      "로그아웃 성공"
+      RESPONSE_MESSAGE.AUTH_SIGN_OUT_SUCCESS
     );
   }
   
@@ -111,7 +112,7 @@ public class SwaggerExample {
       null,
       true,
       RESPONSE_CODE.UNAUTHORIZED,
-      "인증이 필요합니다."
+      RESPONSE_MESSAGE.DEFAULT_UNAUTHORIZED
     );
   }
   
@@ -124,7 +125,7 @@ public class SwaggerExample {
       null,
       true,
       RESPONSE_CODE.INVALID_CREDENTIALS,
-      "이메일 또는 비밀번호가 올바르지 않습니다."
+      RESPONSE_MESSAGE.AUTH_INVALID_TOKEN
     );
   }
   
@@ -137,7 +138,7 @@ public class SwaggerExample {
       null,
       true,
       RESPONSE_CODE.USER_NOT_FOUND,
-      "사용자를 찾을 수 없음"
+      RESPONSE_MESSAGE.USER_NOT_FOUND
     );
   }
 }

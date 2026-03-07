@@ -7,7 +7,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @Getter
 @Setter
@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(description = "공통 입력 DTO")
 public class CommonInDto extends SearchDto {
   
   @SearchCondition(type = SEARCH_TYPE.EQUALS)
@@ -33,13 +34,13 @@ public class CommonInDto extends SearchDto {
   @Schema(description = "수정자 ID", example = "1")
   private Long updaterId;
 
-  @Schema(description = "수정일시", example = "2026-02-19T01:34:00.000Z")
-  private LocalDateTime updateDate;
+  @Schema(description = "수정일시", example = "2026-03-07T10:00:00.000+09:00")
+  private OffsetDateTime updateDate;
   
   @SearchCondition(type = SEARCH_TYPE.EQUALS)
   @Schema(description = "삭제자 ID", example = "1")
   private Long deleterId;
 
-  @Schema(description = "삭제일시", example = "2026-02-19T01:34:00.000Z")
-  private LocalDateTime deleteDate;
+  @Schema(description = "삭제일시", example = "2026-03-07T10:00:00.000+09:00")
+  private OffsetDateTime deleteDate;
 }

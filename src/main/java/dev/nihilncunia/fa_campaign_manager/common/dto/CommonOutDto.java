@@ -5,7 +5,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @Getter
 @Setter
@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Schema(description = "공통 출력 DTO")
 public class CommonOutDto {
 
   @Schema(description = "ID", example = "1")
@@ -27,18 +28,18 @@ public class CommonOutDto {
   @Schema(description = "생성자 ID", example = "1")
   private Long creatorId;
 
-  @Schema(description = "생성일시", example = "2026-02-19T01:34:00.000Z")
-  private LocalDateTime createDate;
+  @Schema(description = "생성일시", example = "2026-03-07T10:00:00.000+09:00")
+  private OffsetDateTime createDate;
 
   @Schema(description = "수정자 ID", example = "1")
   private Long updaterId;
 
-  @Schema(description = "수정일시", example = "2026-02-19T01:34:00.000Z")
-  private LocalDateTime updateDate;
+  @Schema(description = "수정일시", example = "2026-03-07T10:00:00.000+09:00")
+  private OffsetDateTime updateDate;
 
   @Schema(description = "삭제자 ID", example = "1")
   private Long deleterId;
 
-  @Schema(description = "삭제일시", example = "2026-02-19T01:34:00.000Z")
-  private LocalDateTime deleteDate;
+  @Schema(description = "삭제일시", example = "2026-03-07T10:00:00.000+09:00")
+  private OffsetDateTime deleteDate;
 }

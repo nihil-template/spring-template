@@ -2,6 +2,7 @@ package dev.nihilncunia.fa_campaign_manager.common.response;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.nihilncunia.fa_campaign_manager.common.constant.RESPONSE_CODE;
+import dev.nihilncunia.fa_campaign_manager.common.constant.RESPONSE_MESSAGE;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -18,8 +19,8 @@ public class ResponseExampleBuilder {
   public BaseResponse<Object> buildObject(Object data,
                                         boolean error,
                                         RESPONSE_CODE code,
-                                        String message) {
-    return new BaseResponse<>(data, error, code, message);
+                                        RESPONSE_MESSAGE message) {
+    return new BaseResponse<>(data, error, code, message.getMessage());
   }
 
   /**
@@ -30,7 +31,7 @@ public class ResponseExampleBuilder {
    * @param size 페이지 당 데이터 수
    * @param number 현재 페이지 번호 (0부터 시작)
    * @param code 응답 코드
-   * @param message 응답 메시지
+   * @param message 응답 메시지 Enum
    * @return 페이징 구조의 BaseResponse 객체
    */
   public BaseResponse<Object> buildPage(List<?> content,
@@ -39,7 +40,7 @@ public class ResponseExampleBuilder {
                                         int size,
                                         int number,
                                         RESPONSE_CODE code,
-                                        String message) {
+                                        RESPONSE_MESSAGE message) {
     Map<String, Object> pageData = new HashMap<>();
     pageData.put("content", content);
     pageData.put("totalElements", totalElements);
@@ -51,7 +52,7 @@ public class ResponseExampleBuilder {
     pageData.put("last", number == totalPages - 1 || totalPages == 0);
     pageData.put("empty", content.isEmpty());
     
-    return new BaseResponse<>(pageData, false, code, message);
+    return new BaseResponse<>(pageData, false, code, message.getMessage());
   }
 
   /**
@@ -59,17 +60,17 @@ public class ResponseExampleBuilder {
    * @param data 응답 데이터 객체
    * @param error 오류 발생 여부
    * @param code 응답 코드
-   * @param message 응답 메시지
+   * @param message 응답 메시지 Enum
    * @return 포맷팅된 JSON 문자열
    */
   public String build(Object data,
                       boolean error,
                       RESPONSE_CODE code,
-                      String message) {
+                      RESPONSE_MESSAGE message) {
     
     try {
       BaseResponse<Object> response =
-        new BaseResponse<>(data, error, code, message);
+        new BaseResponse<>(data, error, code, message.getMessage());
       
       return objectMapper
         .writerWithDefaultPrettyPrinter()
@@ -81,7 +82,7 @@ public class ResponseExampleBuilder {
                   "data": null,
                   "error": true,
                   "code": "INTERNAL_SERVER_ERROR",
-                  "message": "서버 시스템 에러"
+                  "message": "서버 내부 오류가 발생했습니다."
                 }
                 """;
     }

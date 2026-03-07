@@ -32,6 +32,9 @@ dependencies {
     annotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
     annotationProcessor("org.projectlombok:lombok-mapstruct-binding:0.2.0")
 
+    // Configuration Properties Processor
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+
     // Querydsl (Jakarta 기반)
     implementation("com.querydsl:querydsl-jpa:$queryDslVersion:jakarta")
     annotationProcessor("com.querydsl:querydsl-apt:$queryDslVersion:jakarta")

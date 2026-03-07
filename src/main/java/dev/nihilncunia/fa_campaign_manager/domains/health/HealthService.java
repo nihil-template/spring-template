@@ -1,4 +1,4 @@
-package dev.nihilncunia.fa_campaign_manager.domains.health.service;
+package dev.nihilncunia.fa_campaign_manager.domains.health;
 
 public interface HealthService {
   

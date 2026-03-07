@@ -24,9 +24,9 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     properties:
       hibernate:
-        format_sql: true
-        highlight_sql: true
-        default_batch_fetch_size: 100 # 성능 최적화를 위한 필수 설정
+        "[format_sql]": true
+        "[highlight_sql]": true
+        "[default_batch_fetch_size]": 100 # 성능 최적화를 위한 필수 설정
         dialect: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false # 영속성 컨텍스트 관리를 위해 false 권장
 
@@ -50,8 +50,14 @@ jwt:
     access: 3600000 # 1 hour
     refresh: 604800000 # 7 days
 
+app:
+  security:
+    use-discord: false
+
 logging:
   level:
+    dev:
+      nihilncunia: DEBUG
     org:
       springframework:
         security: DEBUG

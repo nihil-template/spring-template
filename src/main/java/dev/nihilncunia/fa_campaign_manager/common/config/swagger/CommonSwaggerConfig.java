@@ -2,7 +2,7 @@ package dev.nihilncunia.fa_campaign_manager.common.config.swagger;
 
 import dev.nihilncunia.fa_campaign_manager.common.annotation.ApiExampleExclude;
 import dev.nihilncunia.fa_campaign_manager.common.response.BaseResponse;
-import dev.nihilncunia.fa_campaign_manager.domains.health.example.HealthExample;
+import dev.nihilncunia.fa_campaign_manager.domains.health.HealthExample;
 import io.swagger.v3.core.converter.ModelConverters;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.examples.Example;
